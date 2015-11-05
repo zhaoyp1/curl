@@ -1,0 +1,24 @@
+760c760
+<   buffer += "        </form>\n        <div class='response' style='display:none'>\n          <h4>Curl</h4>\n          <div class='block curl'></div>\n          <h4 data-sw-translate>Request URL</h4>\n          <div class='block request_url'></div>\n";
+---
+>   buffer += "        </form>\n <div class='response1' style='display:none'>\n          <h4>Curl</h4>\n          <div class='block curl1'></div>\n  </div>       <div class='response' style='display:none'>\n                   <div style='display:none' class='block curl'></div>\n          <h4 data-sw-translate>Request URL</h4>\n          <div class='block request_url'></div>\n";
+4728c4728
+<   results.push('-X ' + this.method.toUpperCase());
+---
+>   results.push('-X ' + this.method.toUpperCase()+' -k ');
+31512c31512,31514
+< 
+---
+> 		var curlCommand = this.model.asCurl(this.map);
+> 		curlCommand = curlCommand.replace('!', '&#33;');
+> 		$( '.curl1', $(this.el)).html('<pre>' + curlCommand + '</pre>');
+31515a31518,31521
+> 		var curlCommand = this.model.asCurl(this.map);
+> 		curlCommand = curlCommand.replace('!', '&#33;');
+> 		$( '.curl1', $(this.el)).html('<pre>' + curlCommand + '</pre>');
+> 		$('.response1', $(this.el)).slideDown();
+32189c32195
+< });}).call(this);
+\ No newline at end of file
+---
+> });}).call(this);
